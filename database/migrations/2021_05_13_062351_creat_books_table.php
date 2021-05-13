@@ -13,7 +13,16 @@ class CreatBooksTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('books', function (Blueprint $table) {
+            $table->bigIncrements('id')->primary();
+            $table->string('title',240);
+            $table->integer('category_id');
+            $table->integer('author_id');
+            $table->integer('year');
+            $table->text('description');
+            $table->timestamps();
+        });
+    }
     }
 
     /**
