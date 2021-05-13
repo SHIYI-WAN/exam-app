@@ -12,7 +12,7 @@ class BookController extends Controller
     }
     public function upload(Request $request)
     {
-         $this->region_validation($request);
+         $this->book_validation($request);
          $title = $request->get('title');
          $category_id = $request->get('category_id');
          $author_id=$request->get('author_id');
@@ -35,7 +35,7 @@ class BookController extends Controller
          return view('list');
      }
  
-     public function region_validation(){
+     public function book_validation(){
          $rules = [ 
              'title' => 'required',
              'category_id' => 'required',
