@@ -7,5 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
-    use HasFactory;
-}
+    protected $table = 'books';
+    protected $primarykey = 'id';
+    public function bookac()
+    {
+        return $this->hasOneThrough(
+            Category::class,
+            Author::class,
+            'category_id', 
+            'author_id', 
+            'id', 
+            'id' 
+        );
+    }

@@ -16,13 +16,13 @@ class CreatBooksTable extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->bigIncrements('id')->primary();
             $table->string('title',240);
-            $table->integer('category_id');
-            $table->integer('author_id');
+            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('author_id')->references('id')->on('authors');
             $table->integer('year');
             $table->text('description');
             $table->timestamps();
         });
-    }
+    
     }
 
     /**
@@ -32,6 +32,6 @@ class CreatBooksTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('books');
     }
 }

@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/upload', 'BookController@upload')->name('book.upload');
+Route::get('/home', 'BookController@list')->name('book.list');
